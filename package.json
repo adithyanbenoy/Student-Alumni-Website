@@ -1,0 +1,21 @@
+{
+  "name": "fsd-alumni-portal-root",
+  "version": "1.0.0",
+  "description": "SRM Easwari Engineering College Integrated Alumni-Student Mentorship and Job Portal",
+  "scripts": {
+    "install-all": "npm --prefix backend install && npm --prefix frontend install",
+    "seed": "npm --prefix backend run seed",
+    "server": "npm --prefix backend run dev",
+    "client": "npm --prefix frontend run dev",
+    "dev": "node start-dev.js"
+  },
+  "keywords": [
+    "mern",
+    "alumni-portal",
+    "mentorship",
+    "job-portal",
+    "easwari-engineering-college"
+  ],
+  "author": "Adithyan Benoy",
+  "license": "ISC"
+}
