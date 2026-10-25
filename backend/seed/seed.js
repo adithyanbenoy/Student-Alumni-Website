@@ -12,7 +12,7 @@ import Notification from '../models/Notification.js';
 
 dotenv.config();
 
-const MONGO_URI = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/easwari_alumni_portal';
+const MONGO_URI = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/alumni_portal';
 
 const seedDatabase = async () => {
   try {
@@ -36,193 +36,193 @@ const seedDatabase = async () => {
     const hashedPassword = await bcrypt.hash('Password@123', salt);
 
     // 1. Create Users
-    console.log('[Seed] Creating SRM Easwari Users...');
+    console.log('[Seed] Creating Platform Users...');
     const usersData = [
       {
-        name: 'SRM Easwari Admin Office',
-        email: 'admin@easwari.srmrmp.edu.in',
+        name: 'Portal Administrator',
+        email: 'admin@alumniportal.edu',
         password: hashedPassword,
         role: 'admin',
-        department: 'CSE (Cyber Security)',
+        department: 'Computer Science & Engineering',
         batchYear: 2015,
-        designation: 'Portal Administrator',
-        company: 'SRM Easwari Engineering College',
-        bio: 'Official administration portal for SRM Easwari Engineering College alumni-student network and placement cell.',
+        designation: 'Director of Alumni Relations',
+        company: 'Student Alumni Network',
+        bio: 'Managing the centralized platform connecting students and alumni for professional growth, career mentorship, and employment.',
         isVerifiedAlumni: true,
         isMentorAvailable: false,
         avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80'
       },
       {
-        name: 'Ms. Divyanjali',
-        email: 'divyanjali@easwari.srmrmp.edu.in',
+        name: 'Dr. Priya Sharma',
+        email: 'priya.sharma@alumniportal.edu',
         password: hashedPassword,
         role: 'alumni',
-        department: 'CSE (Cyber Security)',
-        batchYear: 2018,
-        designation: 'Technical Trainer & Security Mentor',
-        company: 'SRM Easwari Engineering College',
-        location: 'Chennai, India',
-        bio: 'Faculty Guide & Technical Trainer for CSE (Cyber Security). Guiding students in secure software engineering, threat modeling, and career readiness.',
-        skills: ['Cyber Security', 'Network Security', 'Cryptography', 'Ethical Hacking', 'Secure Coding'],
-        mentorTopics: ['Cyber Security Career Paths', 'Research & Final Year Projects', 'Placement Strategy'],
+        department: 'Computer Science & Engineering',
+        batchYear: 2017,
+        designation: 'Distinguished Career Mentor & Lead Advisor',
+        company: 'Tech Mentorship Council',
+        location: 'San Francisco, CA',
+        bio: 'Guiding students in secure software engineering, architecture, threat modeling, and career progression across top tech firms.',
+        skills: ['Cyber Security', 'Network Security', 'Cryptography', 'Cloud Systems', 'Career Strategy'],
+        mentorTopics: ['Cyber Security Career Paths', 'Graduate Transition', 'Placement Strategy'],
         isVerifiedAlumni: true,
         isMentorAvailable: true,
-        experienceYears: 6,
+        experienceYears: 8,
         avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&auto=format&fit=crop&q=80'
       },
       {
-        name: 'Adithyan Benoy',
-        email: 'adithyan.benoy@student.srmrmp.edu.in',
+        name: 'Marcus Chen',
+        email: 'marcus.chen@student.alumniportal.edu',
         password: hashedPassword,
         role: 'student',
-        department: 'CSE (Cyber Security)',
+        department: 'Computer Science & Engineering',
         batchYear: 2026,
-        registerNumber: '310624149003',
-        location: 'Chennai, India',
-        bio: 'CSE Cyber Security Undergraduate at SRM Easwari Engineering College. Building full-stack systems, threat detection pipelines, and exploring enterprise software security.',
-        skills: ['Cyber Security', 'Penetration Testing', 'MERN Stack', 'React.js', 'Node.js', 'MongoDB', 'Python'],
-        linkedinUrl: 'https://linkedin.com/in/adithyan-benoy',
-        githubUrl: 'https://github.com/adithyanbenoy',
-        resumeUrl: 'https://example.com/resumes/adithyan_benoy.pdf',
+        registerNumber: 'STU-2026-8804',
+        location: 'Seattle, WA',
+        bio: 'Computer Science undergraduate passionate about full-stack engineering, cloud security, and distributed systems.',
+        skills: ['Cyber Security', 'Full Stack Development', 'React', 'Node.js', 'MongoDB', 'Python'],
+        linkedinUrl: 'https://linkedin.com/in/marcus-chen-tech',
+        githubUrl: 'https://github.com/marcuschen-dev',
+        resumeUrl: 'https://example.com/resumes/marcus_chen.pdf',
         avatar: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=150&auto=format&fit=crop&q=80'
       },
       {
-        name: 'Kavitha Sridhar',
-        email: 'kavitha.s@paloaltonetworks.com',
+        name: 'Rachel Adams',
+        email: 'rachel.adams@paloaltonetworks.com',
         password: hashedPassword,
         role: 'alumni',
-        department: 'CSE (Cyber Security)',
+        department: 'Computer Science & Engineering',
         batchYear: 2021,
         designation: 'Senior Cloud Security Architect',
         company: 'Palo Alto Networks',
-        location: 'Bengaluru, India',
-        bio: 'Easwari 2021 batch graduate. Helping students crack tier-1 cyber security roles, understand cloud native security, and obtain industry certifications.',
-        skills: ['Cloud Security', 'Kubernetes Security', 'Prisma Cloud', 'Threat Hunting', 'SIEM/SOAR'],
-        mentorTopics: ['Cyber Security Industry Roadmap', 'Certifications (CEH / CISSP / Security+)', 'Resume Review for Security Roles'],
-        isVerifiedAlumni: true,
-        isMentorAvailable: true,
-        experienceYears: 4,
-        linkedinUrl: 'https://linkedin.com/in/kavithasridhar',
-        avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&auto=format&fit=crop&q=80'
-      },
-      {
-        name: 'Vikram Raghavan',
-        email: 'vikram.raghavan@google.com',
-        password: hashedPassword,
-        role: 'alumni',
-        department: 'CSE',
-        batchYear: 2020,
-        designation: 'Staff Software Engineer',
-        company: 'Google',
-        location: 'Bengaluru, India',
-        bio: 'Alumnus from 2020 batch. Passionate about large scale distributed systems and mentoring ambitious juniors for top product company interviews.',
-        skills: ['Distributed Systems', 'System Design', 'Go', 'Java', 'Algorithms', 'Microservices'],
-        mentorTopics: ['Product Company Interview Preparation', 'System Design Fundamentals', 'Open Source Contribution'],
+        location: 'San Jose, CA',
+        bio: 'Alumna working on cloud security posture and zero trust architectures. Dedicated to helping students transition into top cybersecurity roles.',
+        skills: ['Cloud Security', 'Kubernetes Security', 'Threat Hunting', 'SIEM/SOAR', 'Prisma Cloud'],
+        mentorTopics: ['Cyber Security Industry Roadmap', 'Certifications (Security+ / CISSP)', 'Security Engineering Interviews'],
         isVerifiedAlumni: true,
         isMentorAvailable: true,
         experienceYears: 5,
-        linkedinUrl: 'https://linkedin.com/in/vikramraghavan',
+        linkedinUrl: 'https://linkedin.com/in/rachel-adams-security',
+        avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&auto=format&fit=crop&q=80'
+      },
+      {
+        name: 'Alex Chen',
+        email: 'alex.chen@google.com',
+        password: hashedPassword,
+        role: 'alumni',
+        department: 'Computer Science & Engineering',
+        batchYear: 2020,
+        designation: 'Staff Software Engineer',
+        company: 'Google',
+        location: 'Mountain View, CA',
+        bio: 'Staff Engineer working on scalable distributed systems. Open to mentoring students on data structures, algorithms, and system design.',
+        skills: ['Distributed Systems', 'System Design', 'Go', 'Java', 'Algorithms', 'Microservices'],
+        mentorTopics: ['Tier-1 Tech Interview Preparation', 'System Design Fundamentals', 'Open Source Contribution'],
+        isVerifiedAlumni: true,
+        isMentorAvailable: true,
+        experienceYears: 6,
+        linkedinUrl: 'https://linkedin.com/in/alex-chen-google',
         avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80'
       },
       {
-        name: 'Ananya Sundaram',
-        email: 'ananya.sundaram@zohocorp.com',
+        name: 'Neha Patel',
+        email: 'neha.patel@zohocorp.com',
         password: hashedPassword,
         role: 'alumni',
         department: 'Information Technology',
         batchYear: 2022,
         designation: 'Product Security Lead',
         company: 'Zoho Corporation',
-        location: 'Chennai, India',
-        bio: 'Proud Easwari alumna working at Zoho HQ. Happy to guide students on web application penetration testing, secure SDLC, and hiring trends at Zoho.',
+        location: 'Austin, TX',
+        bio: 'Passionate about web application security, secure SDLC, and assisting students with practical penetration testing skills.',
         skills: ['Application Security', 'OWASP Top 10', 'DevSecOps', 'React', 'Java'],
-        mentorTopics: ['Zoho Campus Hiring Tips', 'AppSec Hands-on Labs', 'Final Year Project Guidance'],
+        mentorTopics: ['Software Engineering Hiring Tips', 'AppSec Hands-on Projects', 'Capstone Guidance'],
         isVerifiedAlumni: true,
         isMentorAvailable: true,
-        experienceYears: 3,
-        linkedinUrl: 'https://linkedin.com/in/ananyasundaram',
+        experienceYears: 4,
+        linkedinUrl: 'https://linkedin.com/in/neha-patel-sec',
         avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80'
       },
       {
-        name: 'Arjun Nambiar',
-        email: 'arjun.n@amazon.com',
+        name: 'James Wilson',
+        email: 'james.wilson@amazon.com',
         password: hashedPassword,
         role: 'alumni',
-        department: 'CSE',
+        department: 'Computer Science & Engineering',
         batchYear: 2019,
         designation: 'Senior SDE II (AWS)',
         company: 'Amazon Web Services',
-        location: 'Hyderabad, India',
-        bio: 'Cloud Architect & SDE at AWS. Happy to assist Easwari students with AWS cloud architecture, competitive coding, and placement rounds.',
+        location: 'Seattle, WA',
+        bio: 'Cloud Architect & SDE at AWS. Happy to mentor students on cloud-native solutions, serverless architectures, and interview preparation.',
         skills: ['AWS', 'Serverless', 'TypeScript', 'Node.js', 'DynamoDB', 'Docker'],
         mentorTopics: ['Amazon Leadership Principles', 'Cloud Certification Guidance', 'Full-stack Portfolio Projects'],
         isVerifiedAlumni: true,
         isMentorAvailable: true,
-        experienceYears: 6,
-        linkedinUrl: 'https://linkedin.com/in/arjunnambiar',
+        experienceYears: 7,
+        linkedinUrl: 'https://linkedin.com/in/james-wilson-aws',
         avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80'
       },
       {
-        name: 'Harish Kumar',
-        email: 'harish.k@cisco.com',
+        name: 'Michael Torres',
+        email: 'michael.torres@cisco.com',
         password: hashedPassword,
         role: 'alumni',
-        department: 'CSE (Cyber Security)',
+        department: 'Computer Science & Engineering',
         batchYear: 2023,
         designation: 'Security Operations Analyst',
         company: 'Cisco',
-        location: 'Chennai, India',
-        bio: 'Recent Easwari graduate. Working on endpoint telemetry and enterprise network defence. Enthusiastic about mentoring juniors.',
+        location: 'Raleigh, NC',
+        bio: 'Working on enterprise network defence, threat telemetry, and security incident response. Passionate about guiding young graduates.',
         skills: ['SOC Analysis', 'Splunk', 'Wireshark', 'Network Protocols', 'Incident Response'],
         mentorTopics: ['Starting a Career in SOC', 'Networking Fundamentals for Cyber Roles', 'Campus to Corporate Transition'],
         isVerifiedAlumni: true,
         isMentorAvailable: true,
-        experienceYears: 2,
-        linkedinUrl: 'https://linkedin.com/in/harishkumar',
+        experienceYears: 3,
+        linkedinUrl: 'https://linkedin.com/in/michael-torres-cisco',
         avatar: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=150&auto=format&fit=crop&q=80'
       },
       {
-        name: 'Deepa Chandran',
-        email: 'deepa.chandran@microsoft.com',
+        name: 'Emily Watson',
+        email: 'emily.watson@microsoft.com',
         password: hashedPassword,
         role: 'alumni',
-        department: 'CSE (AI & ML)',
+        department: 'Artificial Intelligence & Data Science',
         batchYear: 2024,
         designation: 'Associate AI Engineer',
         company: 'Microsoft Research',
-        location: 'Hyderabad, India',
-        bio: 'Fresh Easwari alumna working on LLM fine-tuning and retrieval augmented generation. Profile pending admin verification check.',
+        location: 'Redmond, WA',
+        bio: 'Working on LLM fine-tuning and retrieval-augmented generation. Recent graduate profile pending admin identity verification.',
         skills: ['Python', 'PyTorch', 'Generative AI', 'NLP', 'Azure AI'],
-        mentorTopics: ['AI/ML Capstone Projects', 'Publishing Papers during B.Tech'],
-        isVerifiedAlumni: false, // Testing admin verification workflow!
+        mentorTopics: ['AI/ML Capstone Projects', 'Publishing Papers during Undergrad'],
+        isVerifiedAlumni: false, // For admin verification demo!
         isMentorAvailable: false,
         experienceYears: 1,
-        linkedinUrl: 'https://linkedin.com/in/deepachandran',
+        linkedinUrl: 'https://linkedin.com/in/emily-watson-ai',
         avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=150&auto=format&fit=crop&q=80'
       },
       {
-        name: 'Pooja Ramesh',
-        email: 'pooja.ramesh@student.srmrmp.edu.in',
+        name: 'Sarah Jenkins',
+        email: 'sarah.jenkins@student.alumniportal.edu',
         password: hashedPassword,
         role: 'student',
-        department: 'CSE (AI & ML)',
+        department: 'Artificial Intelligence & Data Science',
         batchYear: 2025,
-        registerNumber: '310624104045',
-        location: 'Chennai, India',
-        bio: 'Final year student interested in Machine Learning and Computer Vision. Looking for mentorship in tier-1 product placements.',
+        registerNumber: 'STU-2025-4102',
+        location: 'Boston, MA',
+        bio: 'Senior undergraduate exploring Computer Vision, deep learning, and predictive modeling for autonomous systems.',
         skills: ['Python', 'TensorFlow', 'Data Science', 'SQL'],
         avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80'
       },
       {
-        name: 'Karthik Subramanian',
-        email: 'karthik.sub@student.srmrmp.edu.in',
+        name: 'David Kim',
+        email: 'david.kim@student.alumniportal.edu',
         password: hashedPassword,
         role: 'student',
         department: 'Information Technology',
         batchYear: 2026,
-        registerNumber: '310624205032',
-        location: 'Chennai, India',
-        bio: 'Third year IT student passionate about full-stack web and mobile development.',
+        registerNumber: 'STU-2026-6209',
+        location: 'Chicago, IL',
+        bio: 'Third-year student specializing in modern web frameworks, cloud microservices, and mobile application development.',
         skills: ['React Native', 'Node.js', 'Express', 'TailwindCSS'],
         avatar: 'https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=150&auto=format&fit=crop&q=80'
       }
@@ -231,127 +231,126 @@ const seedDatabase = async () => {
     const createdUsers = await User.insertMany(usersData);
     console.log(`[Seed] Seeded ${createdUsers.length} users successfully.`);
 
-    // Map users by email for reference
     const userMap = {};
     createdUsers.forEach((u) => {
       userMap[u.email] = u;
     });
 
-    const admin = userMap['admin@easwari.srmrmp.edu.in'];
-    const divyanjali = userMap['divyanjali@easwari.srmrmp.edu.in'];
-    const adithyan = userMap['adithyan.benoy@student.srmrmp.edu.in'];
-    const kavitha = userMap['kavitha.s@paloaltonetworks.com'];
-    const vikram = userMap['vikram.raghavan@google.com'];
-    const ananya = userMap['ananya.sundaram@zohocorp.com'];
-    const arjun = userMap['arjun.n@amazon.com'];
-    const harish = userMap['harish.k@cisco.com'];
-    const pooja = userMap['pooja.ramesh@student.srmrmp.edu.in'];
+    const admin = userMap['admin@alumniportal.edu'];
+    const priya = userMap['priya.sharma@alumniportal.edu'];
+    const marcus = userMap['marcus.chen@student.alumniportal.edu'];
+    const rachel = userMap['rachel.adams@paloaltonetworks.com'];
+    const alex = userMap['alex.chen@google.com'];
+    const neha = userMap['neha.patel@zohocorp.com'];
+    const james = userMap['james.wilson@amazon.com'];
+    const michael = userMap['michael.torres@cisco.com'];
+    const sarah = userMap['sarah.jenkins@student.alumniportal.edu'];
 
     // 2. Announcements
-    console.log('[Seed] Creating College Announcements...');
+    console.log('[Seed] Creating Announcements...');
     await Announcement.insertMany([
       {
-        title: 'SRM Easwari Annual Placement Conclave 2026 & Alumni Referral Portal Launched',
-        content: 'We are thrilled to launch the official Integrated Alumni-Student Mentorship and Job Portal. Students can now connect directly with our esteemed alumni across global tech giants for career mentorship, mock interviews, and exclusive internal referral opportunities.',
+        title: 'Annual Tech Career Conclave & Alumni Referral Network Launched',
+        content: 'Welcome to the official Student Alumni Portal! Students can now connect directly with our alumni working across global technology companies for career guidance, mock technical interviews, and exclusive internal job referrals.',
         author: admin._id,
         priority: 'high',
         category: 'Placement'
       },
       {
-        title: 'Special Guest Lecture: Industrial Cyber Security & Zero-Trust Architecture',
-        content: 'The Department of CSE (Cyber Security) in association with our Alumni Cell is hosting a hands-on webinar by Ms. Kavitha Sridhar (Senior Cloud Security Architect, Palo Alto Networks). Check the Events section to RSVP!',
-        author: divyanjali._id,
+        title: 'Special Keynote: Cloud Security Architecture & Zero-Trust Defense',
+        content: 'Join alumna Rachel Adams (Senior Cloud Security Architect at Palo Alto Networks) for an interactive session on cloud-native security, network defense, and early-career cybersecurity opportunities.',
+        author: priya._id,
         priority: 'medium',
         category: 'Academic'
       }
     ]);
 
-    // 3. Posts (LinkedIn-style Feed)
+    // 3. Posts
     console.log('[Seed] Creating Feed Posts...');
     await Post.insertMany([
       {
-        author: kavitha._id,
-        content: `Excited to reconnect with my alma mater SRM Easwari Engineering College! 🛡️
+        author: rachel._id,
+        content: `Excited to connect with students and fellow alumni through the portal! 🛡️
 
-To all 3rd and final year students preparing for Cyber Security and Cloud Security placements this semester:
-1. Focus deeply on networking fundamentals (TCP/IP, DNS, SSL/TLS, packet analysis with Wireshark).
-2. Familiarize yourself with Cloud security baselines (IAM, VPC Peering, Zero Trust).
-3. Build real projects (e.g., SIEM dashboards, packet sniffers, or vulnerable web app walkthroughs) rather than just listing certifications.
+To all students preparing for cybersecurity and cloud engineering roles this semester:
+1. Master core networking fundamentals (TCP/IP, DNS, TLS, packet analysis with Wireshark).
+2. Learn cloud security fundamentals (IAM policies, VPC peering, least privilege).
+3. Build real projects (SIEM dashboards, automated log scanners, vulnerable web lab walkthroughs) rather than relying only on certifications.
 
-Feel free to request a 1-on-1 mentorship session with me right here on the portal. Let's make Easwari proud! 🚀`,
+Feel free to request a 1-on-1 mentorship session with me on the portal. Happy to help! 🚀`,
         category: 'Career Advice',
-        tags: ['CyberSecurity', 'EaswariAlumni', 'CareerGuidance', 'CloudSecurity', 'Placements2026'],
-        likes: [adithyan._id, pooja._id, admin._id],
+        tags: ['CyberSecurity', 'CareerGuidance', 'CloudSecurity', 'TechPlacements'],
+        likes: [marcus._id, sarah._id, admin._id],
         comments: [
           {
-            user: adithyan._id,
-            content: 'Thank you so much for the valuable advice, ma\'am! Really excited for the cloud security mentorship session.',
+            user: marcus._id,
+            content: 'Thank you for the practical advice! Looking forward to our cloud security session this week.',
             createdAt: new Date(Date.now() - 3600000 * 4)
           },
           {
-            user: divyanjali._id,
-            content: 'Inspiring to see our alumni giving back to the department juniors. Great points, Kavitha!',
+            user: priya._id,
+            content: 'Inspiring to see our alumni actively giving back to aspiring juniors. Great points, Rachel!',
             createdAt: new Date(Date.now() - 3600000 * 2)
           }
         ]
       },
       {
-        author: adithyan._id,
-        content: `Thrilled to present our Full Stack Development project under the guidance of Ms. Divyanjali: "Integrated Alumni-Student Mentorship and Job Portal" for SRM Easwari Engineering College! 🎓💻
+        author: marcus._id,
+        content: `Thrilled to share our new full-stack platform: "Student Alumni Portal" — a centralized, professional network connecting students, alumni mentors, and recruiters! 🎓💻
 
-A single centralized platform where students can:
-✅ Seamlessly discover verified alumni mentors by department, company, and domain.
-✅ Schedule 1-on-1 career guidance sessions with built-in chat and video links.
-✅ Browse and apply for exclusive job & internship postings with one click.
-✅ Engage in a LinkedIn-like professional feed with college announcements and tech discussions.
-✅ Comprehensive admin dashboard for college oversight and alumni verification.
+Key Highlights:
+✅ Verified alumni directory searchable by company, role, and domain expertise.
+✅ 1-on-1 career mentorship scheduling with integrated video meeting links.
+✅ Curated job & internship board with 1-click student applications.
+✅ Real-time messaging and interactive discussions.
+✅ Administrative dashboard with alumni credential verification.
 
-Built on the modern MERN Stack with real-time Socket.io communication. Looking forward to feedback from faculty and fellow students! 🌟`,
+Built on the MERN stack with Socket.io real-time communication. Feedback and thoughts are warmly welcomed! 🌟`,
         category: 'Project Showcase',
-        tags: ['MERNStack', 'SRMEaswari', 'FinalProject', 'CyberSecurity', 'Innovation', 'FullStackDevelopment'],
+        tags: ['MERNStack', 'FullStackDevelopment', 'WebSockets', 'React', 'NodeJS'],
         mediaUrl: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&auto=format&fit=crop&q=80',
-        likes: [kavitha._id, vikram._id, ananya._id, divyanjali._id, admin._id],
+        likes: [rachel._id, alex._id, neha._id, priya._id, admin._id],
         comments: [
           {
-            user: divyanjali._id,
-            content: 'Outstanding work Adithyan! The centralized integration of mentorship and jobs directly solves our campus placement and alumni networking needs.',
+            user: priya._id,
+            content: 'Impressive system design and execution, Marcus! The integrated mentorship and referral pipeline is seamless.',
             createdAt: new Date(Date.now() - 3600000 * 3)
           },
           {
-            user: vikram._id,
-            content: 'Impressive MERN stack architecture! The clean separation of concerns and real-time chat are great additions. Kudos from Google!',
+            user: alex._id,
+            content: 'Great clean architecture! The real-time messaging and responsive layout look sharp.',
             createdAt: new Date(Date.now() - 3600000 * 1)
           }
         ]
       },
       {
-        author: ananya._id,
-        content: `Zoho Corporation is actively opening summer internship and full-time hiring for software development and application security roles! 💼
+        author: neha._id,
+        content: `Zoho Corporation is opening applications for software engineering and application security internships! 💼
 
-We love hiring from SRM Easwari because of the strong foundational grounding. I have posted 2 open roles directly in our Job Board here. If you have built solid full-stack or cybersecurity projects, apply now and send me a note for an internal recommendation!`,
+I have listed open positions directly in our Job Board here. If you have built solid full-stack or security projects, feel free to apply and reach out for an internal referral!`,
         category: 'Job Referral',
-        tags: ['ZohoHiring', 'Internship2026', 'EaswariPlacements', 'AppSec', 'SoftwareEngineer'],
-        likes: [adithyan._id, pooja._id, arjun._id],
+        tags: ['ZohoHiring', 'Internship2026', 'AppSec', 'SoftwareEngineer'],
+        likes: [marcus._id, sarah._id, james._id],
         comments: [
           {
-            user: pooja._id,
-            content: 'Applied for the SDE intern role! Thank you so much Ananya ma\'am for sharing this opportunity.',
+            user: sarah._id,
+            content: 'Just submitted my application! Thank you for sharing this opportunity, Neha!',
             createdAt: new Date(Date.now() - 3600000 * 5)
           }
         ]
       },
       {
-        author: vikram._id,
-        content: `Quick tip for students preparing for Product Company Coding Rounds:
-Don't just memorize LeetCode solutions. Interviewers care about:
-1. How you clarify edge cases before typing code.
-2. How cleanly you communicate your thought process and trade-offs (Time vs Space complexity).
-3. Writing clean, modular, production-ready code with meaningful variable names.
+        author: alex._id,
+        content: `A quick tip for coding rounds and technical interviews:
+Focus on communication and edge cases rather than rushing to write syntax:
+1. Ask clarifying questions before starting.
+2. Discuss trade-offs (Time vs Space complexity) clearly.
+3. Write clean, modular functions with meaningful variable names.
 
-Open to conducting mock technical interviews for 2-3 final year students this weekend! Send a mentorship request on the portal.`,
+I am hosting mock technical interview sessions for a few final-year students this weekend. Check the Mentorship tab to request a slot!`,
         category: 'Career Advice',
-        tags: ['InterviewTips', 'Google', 'DataStructures', 'SoftwareEngineering', 'CampusToCorporate'],
-        likes: [adithyan._id, kavitha._id, harish._id],
+        tags: ['InterviewTips', 'Google', 'DataStructures', 'SoftwareEngineering'],
+        likes: [marcus._id, rachel._id, michael._id],
         comments: []
       }
     ]);
@@ -360,37 +359,37 @@ Open to conducting mock technical interviews for 2-3 final year students this we
     console.log('[Seed] Creating Jobs and Internships...');
     await Job.insertMany([
       {
-        title: 'Cyber Security Analyst Intern (Cloud & Threat Defense)',
+        title: 'Cyber Security Analyst Intern (Cloud Threat Defense)',
         company: 'Palo Alto Networks',
         companyLogo: 'https://logo.clearbit.com/paloaltonetworks.com',
-        location: 'Bengaluru / Remote Hybrid',
+        location: 'San Jose, CA / Remote Hybrid',
         type: 'Internship',
         workplaceType: 'Hybrid',
-        departmentEligibility: ['CSE (Cyber Security)', 'CSE', 'Information Technology'],
-        description: `Palo Alto Networks is looking for passionate Cyber Security Interns to join our Cloud Threat Defense unit. You will work closely with senior security architects to monitor threat telemetry, evaluate vulnerability reports, and design automated remediation playbooks.
+        departmentEligibility: ['Computer Science & Engineering', 'Information Technology'],
+        description: `Palo Alto Networks is seeking passionate Cyber Security Interns to join our Cloud Threat Defense unit. You will work with senior security architects to analyze threat telemetry, evaluate vulnerability reports, and design automated remediation workflows.
 
 Key Responsibilities:
-• Assist in triaging security events using modern SIEM and XDR tools.
+• Assist in triaging security events using modern SIEM and XDR systems.
 • Conduct security posture assessments across AWS and GCP environments.
-• Collaborate on security automation scripts using Python and REST APIs.`,
+• Build security automation scripts using Python and REST APIs.`,
         requirements: [
-          'Pursuing B.Tech in CSE / Cyber Security / IT (3rd or 4th Year)',
+          'Pursuing Bachelor in Computer Science / Information Technology (3rd or 4th Year)',
           'Strong understanding of TCP/IP, OSI model, and network security protocols',
           'Proficiency with Python, Linux command-line, and Git',
           'Good analytical and problem-solving skills'
         ],
-        salaryOrStipend: '₹45,000 / month + Pre-Placement Offer (PPO)',
+        salaryOrStipend: '$45 / hr + Housing Stipend',
         applyDeadline: new Date(Date.now() + 86400000 * 20),
-        postedBy: kavitha._id,
+        postedBy: rachel._id,
         status: 'active',
         applicants: [
           {
-            student: adithyan._id,
-            coverNote: 'I am in 3rd year CSE Cyber Security at SRM Easwari. I have hands-on experience in penetration testing, threat modeling, and building secure full-stack applications. Would love the opportunity to contribute at Palo Alto Networks!',
-            resumeUrl: 'https://example.com/resumes/adithyan_benoy.pdf',
+            student: marcus._id,
+            coverNote: 'I am a 3rd-year CS student with hands-on experience in penetration testing, threat modeling, and building secure full-stack applications. Would love the opportunity to contribute at Palo Alto Networks!',
+            resumeUrl: 'https://example.com/resumes/marcus_chen.pdf',
             status: 'shortlisted',
             appliedAt: new Date(Date.now() - 86400000 * 2),
-            notes: 'Strong candidate with cybersecurity specialization and impressive full-stack portal project.'
+            notes: 'Strong candidate with impressive full-stack portal project and security foundations.'
           }
         ]
       },
@@ -398,31 +397,30 @@ Key Responsibilities:
         title: 'Associate Software Development Engineer (Full Stack)',
         company: 'Zoho Corporation',
         companyLogo: 'https://logo.clearbit.com/zoho.com',
-        location: 'Chennai (Estancia Campus)',
+        location: 'Austin, TX',
         type: 'Full-time',
         workplaceType: 'On-site',
         departmentEligibility: ['All Departments'],
-        description: `Zoho Corporation is hiring Associate Software Development Engineers to engineer high-scale SaaS products used by over 100 million users worldwide.
+        description: `Zoho Corporation is hiring Associate Software Engineers to build scalable SaaS applications used by over 100 million users globally.
 
-You will be responsible for:
-• Developing responsive, performant user interfaces with modern web standards.
-• Engineering fault-tolerant backend REST APIs and microservices.
-• Optimizing database queries and system throughput.`,
+Responsibilities:
+• Develop responsive, performant user interfaces with modern web standards.
+• Engineer fault-tolerant backend REST APIs and microservices.
+• Optimize database queries and system throughput.`,
         requirements: [
           'Graduating Batch of 2025 or 2026',
           'Hands-on expertise in JavaScript / TypeScript / React / Node.js or Java',
-          'Strong problem-solving and algorithmic thinking',
-          'Enthusiasm to work on deep-tech products'
+          'Strong algorithmic thinking and problem solving'
         ],
-        salaryOrStipend: '₹7,50,000 - ₹10,00,000 / annum',
+        salaryOrStipend: '$85,000 - $110,000 / year',
         applyDeadline: new Date(Date.now() + 86400000 * 25),
-        postedBy: ananya._id,
+        postedBy: neha._id,
         status: 'active',
         applicants: [
           {
-            student: pooja._id,
-            coverNote: 'Interested in working on scalable SaaS products at Zoho Chennai campus.',
-            resumeUrl: 'https://example.com/resumes/pooja_ramesh.pdf',
+            student: sarah._id,
+            coverNote: 'Interested in scalable web applications and SaaS architecture at Zoho.',
+            resumeUrl: 'https://example.com/resumes/sarah_jenkins.pdf',
             status: 'under_review',
             appliedAt: new Date(Date.now() - 86400000 * 1)
           }
@@ -432,19 +430,19 @@ You will be responsible for:
         title: 'Cloud Support & DevOps Associate',
         company: 'Amazon Web Services (AWS)',
         companyLogo: 'https://logo.clearbit.com/amazon.com',
-        location: 'Hyderabad / Chennai',
+        location: 'Seattle, WA',
         type: 'Full-time',
         workplaceType: 'Hybrid',
-        departmentEligibility: ['CSE', 'CSE (Cyber Security)', 'Information Technology', 'ECE'],
-        description: `Join AWS as a Cloud Associate. You will work with global enterprise customers to troubleshoot distributed architectures, container orchestrations, and AWS security configurations.`,
+        departmentEligibility: ['Computer Science & Engineering', 'Information Technology'],
+        description: `Join AWS as a Cloud Associate. Troubleshoot distributed architectures, container orchestrations, and AWS security configurations for enterprise cloud customers.`,
         requirements: [
-          'B.Tech 2025/2026 batch with minimum 7.5 CGPA',
+          'Undergraduate 2025/2026 batch in Computer Science or related fields',
           'Familiarity with AWS core services (EC2, S3, IAM, Lambda, VPC)',
           'Scripting skills in Bash, Python or JavaScript'
         ],
-        salaryOrStipend: '₹14,00,000 - ₹18,00,000 CTC',
+        salaryOrStipend: '$120,000 - $145,000 Total Compensation',
         applyDeadline: new Date(Date.now() + 86400000 * 15),
-        postedBy: arjun._id,
+        postedBy: james._id,
         status: 'active',
         applicants: []
       },
@@ -452,19 +450,19 @@ You will be responsible for:
         title: 'Junior SOC Analyst (Security Operations Center)',
         company: 'Cisco Systems',
         companyLogo: 'https://logo.clearbit.com/cisco.com',
-        location: 'Chennai, India',
+        location: 'RTP, NC',
         type: 'Full-time',
         workplaceType: 'On-site',
-        departmentEligibility: ['CSE (Cyber Security)', 'CSE', 'IT'],
-        description: `Join Cisco Customer Experience (CX) Security Center. Monitor real-time intrusion attempts, investigate malware behaviors, and assist global response teams.`,
+        departmentEligibility: ['Computer Science & Engineering', 'Information Technology'],
+        description: `Join Cisco Customer Experience Security Operations. Monitor real-time intrusion attempts, investigate malware behaviors, and assist global response teams.`,
         requirements: [
-          'Specialization in Cyber Security or strong coursework in Network Defense',
+          'Strong coursework in Network Defense and System Security',
           'Understanding of MITRE ATT&CK framework, SIEM, and firewalls',
-          'CCNA or Security+ certification is a big plus'
+          'Security+ or CCNA is a plus'
         ],
-        salaryOrStipend: '₹9,00,000 - ₹12,00,000 CTC',
+        salaryOrStipend: '$80,000 - $95,000 / year',
         applyDeadline: new Date(Date.now() + 86400000 * 30),
-        postedBy: harish._id,
+        postedBy: michael._id,
         status: 'active',
         applicants: []
       }
@@ -474,35 +472,35 @@ You will be responsible for:
     console.log('[Seed] Creating Mentorship Requests...');
     await MentorshipRequest.insertMany([
       {
-        student: adithyan._id,
-        alumni: kavitha._id,
+        student: marcus._id,
+        alumni: rachel._id,
         topic: 'Cyber Security Career Roadmap & SOC Analyst Interview Prep',
-        message: 'Hello Kavitha ma\'am, I am in 3rd year CSE Cyber Security at Easwari. I am building hands-on labs and our FSD portal. I would love your advice on preparing for cloud security roles and certifications like CompTIA Security+.',
+        message: 'Hello Rachel, I am in my 3rd year studying Computer Science. I have built full-stack projects and want to pursue a career in cloud security. Would love your guidance on certifications and interview prep.',
         preferredTiming: 'Saturdays 5:00 PM - 6:00 PM',
         status: 'accepted',
-        meetingLink: 'https://meet.google.com/easwari-sec-mentor',
+        meetingLink: 'https://meet.google.com/sec-alumni-mentor',
         scheduledDate: new Date(Date.now() + 86400000 * 2),
-        mentorNotes: 'Looking forward to meeting Adithyan. Very impressive resume and project foundation. Will discuss cloud security playbooks and interview tips.'
+        mentorNotes: 'Looking forward to meeting Marcus. Very impressive project foundations. Will discuss cloud security playbooks and interview tips.'
       },
       {
-        student: pooja._id,
-        alumni: vikram._id,
-        topic: 'Cracking Tier-1 Product Company Algorithms & System Design',
-        message: 'Hi Vikram sir, I am preparing for tier-1 campus placements and would love your guidance on prioritizing dynamic programming vs graphs for Google interview rounds.',
+        student: sarah._id,
+        alumni: alex._id,
+        topic: 'Preparing for Tier-1 Product Company Algorithms & System Design',
+        message: 'Hi Alex, I am preparing for product company placements and would love advice on structuring technical practice for data structures and system design rounds.',
         preferredTiming: 'Sunday Morning',
         status: 'pending'
       },
       {
-        student: adithyan._id,
-        alumni: divyanjali._id,
-        topic: 'Final Review: Integrated Alumni-Student Portal Architecture',
-        message: 'Ma\'am, requesting a brief walkthrough session to review the final MERN stack endpoints, authentication security, and admin verification module.',
-        preferredTiming: 'College Hours / Lab 3',
+        student: marcus._id,
+        alumni: priya._id,
+        topic: 'Final Review: Full Stack Portal Architecture and Security',
+        message: 'Dr. Sharma, requesting a walkthrough session to review the final MERN stack endpoints, authentication security, and admin verification module.',
+        preferredTiming: 'Friday Afternoon',
         status: 'completed',
-        meetingLink: 'In-person / Faculty Cabin CSE',
-        mentorNotes: 'Reviewed the full MERN stack implementation. Security controls and role-based access are very well engineered.',
+        meetingLink: 'https://meet.google.com/faculty-review',
+        mentorNotes: 'Reviewed the full MERN stack implementation. Security controls and role-based access are well engineered.',
         rating: 5,
-        feedback: 'Excellent guidance from Ms. Divyanjali throughout the project lifecycle.'
+        feedback: 'Invaluable feedback and architectural guidance.'
       }
     ]);
 
@@ -510,58 +508,58 @@ You will be responsible for:
     console.log('[Seed] Creating Sample Chat Messages...');
     await Message.insertMany([
       {
-        sender: kavitha._id,
-        recipient: adithyan._id,
-        content: 'Hi Adithyan! I saw your mentorship request and your project showcase. Great to see fellow Cyber Security juniors doing remarkable work at Easwari!'
+        sender: rachel._id,
+        recipient: marcus._id,
+        content: 'Hi Marcus! I saw your mentorship request and your full-stack project showcase. Great to see students building impressive end-to-end architectures!'
       },
       {
-        sender: adithyan._id,
-        recipient: kavitha._id,
-        content: 'Thank you so much Kavitha ma\'am! It means a lot coming from an alumnus at Palo Alto Networks. Looking forward to our scheduled session this Saturday!'
+        sender: marcus._id,
+        recipient: rachel._id,
+        content: 'Thank you so much, Rachel! It means a lot. Really looking forward to our scheduled session this Saturday!'
       },
       {
-        sender: kavitha._id,
-        recipient: adithyan._id,
-        content: 'I have added the Google Meet link in the portal. Please keep a list of your top questions ready so we can make the best use of time.'
+        sender: rachel._id,
+        recipient: marcus._id,
+        content: 'I have attached the Google Meet link in the portal. Please have your top questions and resume ready so we can dive right in.'
       }
     ]);
 
-    // 7. Upcoming College Events & Alumni Webinars
+    // 7. Events & Webinars
     console.log('[Seed] Creating Campus Events...');
     await Event.insertMany([
       {
-        title: 'Navigating the Cyber Security Landscape in 2026: From Campus to Palo Alto Networks',
-        description: 'An exclusive interactive keynote by alumna Kavitha Sridhar covering emerging threat vectors, zero-trust cloud security, and what hiring managers look for in campus recruits.',
+        title: 'Navigating the Cyber Security Landscape: From Campus to Enterprise',
+        description: 'An exclusive interactive keynote by alumna Rachel Adams covering emerging cloud threats, zero-trust architectures, and what security leaders look for in college graduates.',
         date: new Date(Date.now() + 86400000 * 5),
-        time: '10:30 AM - 12:30 PM IST',
-        location: 'Online via Google Meet & TRP Auditorium Live Broadcast',
+        time: '10:30 AM - 12:00 PM EST',
+        location: 'Online via Google Meet',
         meetingUrl: 'https://meet.google.com/sec-alumni-talk',
         speaker: {
-          name: 'Kavitha Sridhar',
+          name: 'Rachel Adams',
           role: 'Senior Cloud Security Architect',
           company: 'Palo Alto Networks',
           avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&auto=format&fit=crop&q=80'
         },
-        organizer: divyanjali._id,
+        organizer: priya._id,
         category: 'Webinar',
-        attendees: [adithyan._id, pooja._id]
+        attendees: [marcus._id, sarah._id]
       },
       {
-        title: 'Crack the Tier-1 SDE Placement: Google, Amazon & Microsoft Alumni Panel',
-        description: 'Join SRM Easwari alumni Vikram Raghavan (Google) and Arjun Nambiar (AWS) as they break down coding round patterns, system design rounds, and resume building tips.',
+        title: 'Cracking the Tier-1 SDE Placement: Google, Amazon & Microsoft Alumni Panel',
+        description: 'Join alumni Alex Chen (Google) and James Wilson (AWS) as they break down coding interview patterns, system design rounds, and resume building tips.',
         date: new Date(Date.now() + 86400000 * 9),
-        time: '6:00 PM - 7:30 PM IST',
+        time: '6:00 PM - 7:30 PM EST',
         location: 'Virtual Session (Google Meet)',
-        meetingUrl: 'https://meet.google.com/easwari-tier1-panel',
+        meetingUrl: 'https://meet.google.com/tech-alumni-panel',
         speaker: {
-          name: 'Vikram Raghavan & Arjun Nambiar',
+          name: 'Alex Chen & James Wilson',
           role: 'Tech Leads',
           company: 'Google & AWS',
           avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80'
         },
         organizer: admin._id,
         category: 'Tech Talk',
-        attendees: [adithyan._id]
+        attendees: [marcus._id]
       }
     ]);
 
@@ -569,16 +567,16 @@ You will be responsible for:
     console.log('[Seed] Creating Sample Notifications...');
     await Notification.insertMany([
       {
-        recipient: adithyan._id,
-        sender: kavitha._id,
+        recipient: marcus._id,
+        sender: rachel._id,
         type: 'mentorship_status',
         title: 'Mentorship Request Accepted',
-        message: 'Kavitha Sridhar accepted your mentorship request. Meeting link is now active.',
+        message: 'Rachel Adams accepted your mentorship request. The Google Meet link is now active.',
         link: '/mentorship'
       },
       {
-        recipient: adithyan._id,
-        sender: kavitha._id,
+        recipient: marcus._id,
+        sender: rachel._id,
         type: 'application_status',
         title: 'Job Application Shortlisted',
         message: 'Your application for Cyber Security Analyst Intern at Palo Alto Networks has been shortlisted!',
@@ -586,7 +584,7 @@ You will be responsible for:
       }
     ]);
 
-    console.log('[Seed] Database successfully populated with realistic SRM Easwari data!');
+    console.log('[Seed] Database successfully populated with realistic platform data!');
     process.exit(0);
   } catch (error) {
     console.error('[Seed Error]', error);

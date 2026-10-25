@@ -191,13 +191,13 @@ const MentorshipPage = () => {
         <div className="max-w-2xl relative z-10">
           <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-md px-3 py-1 rounded-full text-xs font-semibold text-accent-gold mb-3 border border-white/20">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>SRM Easwari Engineering College Mentorship Hub</span>
+            <span>Student Alumni Mentorship Hub</span>
           </div>
           <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
-            Connect 1-on-1 with Easwari Alumni Leaders
+            Connect 1-on-1 with Industry Alumni Leaders
           </h1>
           <p className="text-sm text-brand-100 mt-2 leading-relaxed">
-            Gain invaluable career advice, mock interview training, and guidance directly from seniors working at Google, Palo Alto Networks, Zoho, Amazon, and Cisco.
+            Gain invaluable career advice, mock interview training, and guidance directly from alumni working at Google, Palo Alto Networks, Zoho, Amazon, and Cisco.
           </p>
 
           <div className="mt-5 flex items-center space-x-3">
@@ -290,7 +290,7 @@ const MentorshipPage = () => {
                         <div className="flex items-center gap-1">
                           <h3 className="font-bold text-slate-900 text-sm truncate">{mentor.name}</h3>
                           {mentor.isVerifiedAlumni && (
-                            <CheckCircle2 className="w-4 h-4 text-blue-600 flex-shrink-0" title="Verified Easwari Alumnus" />
+                            <CheckCircle2 className="w-4 h-4 text-blue-600 flex-shrink-0" title="Verified Alumnus" />
                           )}
                         </div>
                         <p className="text-xs font-semibold text-slate-700 truncate">
@@ -308,7 +308,7 @@ const MentorshipPage = () => {
 
                     {/* Bio */}
                     <p className="text-xs text-slate-600 my-3 line-clamp-3 leading-relaxed">
-                      {mentor.bio || 'Passionate about giving back to juniors at SRM Easwari through mentorship.'}
+                      {mentor.bio || 'Passionate about giving back to students through professional mentorship.'}
                     </p>
 
                     {/* Mentorship Focus Topics */}

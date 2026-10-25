@@ -4,12 +4,12 @@ import API from '../services/api';
 import {
   Calendar,
   Sparkles,
-  ExternalLink,
   ChevronRight,
   Shield,
   Briefcase,
   Award,
-  CheckCircle2
+  CheckCircle2,
+  TrendingUp
 } from 'lucide-react';
 
 const RightSidebar = () => {
@@ -43,7 +43,7 @@ const RightSidebar = () => {
         <div className="flex items-center justify-between mb-3">
           <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider flex items-center gap-1.5">
             <Sparkles className="w-3.5 h-3.5 text-accent-gold" />
-            Featured Mentors
+            Featured Alumni Mentors
           </h4>
           <Link to="/mentorship" className="text-[11px] font-bold text-brand-800 hover:underline">
             View All
@@ -87,12 +87,12 @@ const RightSidebar = () => {
         </div>
       </div>
 
-      {/* Upcoming Campus Events Widget */}
+      {/* Upcoming Events Widget */}
       <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-4">
         <div className="flex items-center justify-between mb-3">
           <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider flex items-center gap-1.5">
             <Calendar className="w-3.5 h-3.5 text-blue-600" />
-            Alumni Conclave & Talks
+            Webinars & Talks
           </h4>
           <Link to="/events" className="text-[11px] font-bold text-brand-800 hover:underline">
             See Events
@@ -124,25 +124,19 @@ const RightSidebar = () => {
         </div>
       </div>
 
-      {/* Project Guidance & Institutional Badge */}
+      {/* Platform Values Card */}
       <div className="bg-gradient-to-br from-slate-900 to-brand-900 rounded-xl p-4 text-white shadow-sm">
         <div className="flex items-center gap-2 mb-2">
-          <Shield className="w-4 h-4 text-accent-gold" />
+          <TrendingUp className="w-4 h-4 text-accent-gold" />
           <h5 className="text-xs font-bold uppercase tracking-wider text-accent-gold">
-            Academic Project Info
+            Network Impact
           </h5>
         </div>
         <p className="text-xs font-semibold text-slate-200">
-          SRM Easwari Engineering College
+          Centralized Student-Alumni Bridge
         </p>
-        <p className="text-[11px] text-slate-300 mt-1">
-          <span className="text-slate-400">Presented by:</span> Adithyan Benoy (310624149003)
-        </p>
-        <p className="text-[11px] text-slate-300">
-          <span className="text-slate-400">Under Guidance of:</span> Ms. Divyanjali
-        </p>
-        <p className="text-[10px] text-brand-300 font-medium mt-1">
-          Technical Trainer, Dept of CSE (Cyber Security)
+        <p className="text-[11px] text-slate-300 mt-1 leading-relaxed">
+          Connecting verified alumni leaders across top tier technology companies directly with ambitious students for career mentorship and internal job referrals.
         </p>
       </div>
     </aside>

@@ -22,7 +22,7 @@ const LeftSidebar = () => {
     <aside className="w-full lg:w-64 space-y-4">
       {/* User Quick Profile Card */}
       <div className="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
-        {/* Banner with Easwari Gradient */}
+        {/* Banner with Sleek Gradient */}
         <div className="h-20 bg-gradient-to-r from-brand-800 via-brand-700 to-emerald-600 relative">
           <div className="absolute top-2 right-2 bg-white/20 backdrop-blur-md text-white text-[9px] font-bold px-2 py-0.5 rounded uppercase">
             {user.role}
@@ -43,7 +43,7 @@ const LeftSidebar = () => {
             <h3 className="font-bold text-slate-900 group-hover:text-brand-800 transition-colors flex items-center justify-center gap-1.5 text-sm">
               {user.name}
               {user.isVerifiedAlumni && user.role === 'alumni' && (
-                <CheckCircle2 className="w-4 h-4 text-blue-600 inline" title="Verified Easwari Alumnus" />
+                <CheckCircle2 className="w-4 h-4 text-blue-600 inline" title="Verified Alumnus" />
               )}
             </h3>
           </Link>
@@ -53,12 +53,6 @@ const LeftSidebar = () => {
               ? `${user.designation || 'Alumnus'} @ ${user.company || 'Tech Leader'}`
               : `${user.department} • Batch ${user.batchYear}`}
           </p>
-
-          {user.registerNumber && (
-            <p className="text-[11px] font-mono text-slate-400 mt-0.5">
-              Reg No: {user.registerNumber}
-            </p>
-          )}
 
           {user.role === 'alumni' && user.isMentorAvailable && (
             <div className="mt-2 inline-flex items-center space-x-1 bg-emerald-50 text-emerald-700 text-[10px] font-bold px-2.5 py-0.5 rounded-full border border-emerald-200">
@@ -93,17 +87,17 @@ const LeftSidebar = () => {
           </Link>
         </div>
 
-        {/* Institutional Affiliation Badge */}
+        {/* Organization Badge */}
         <div className="bg-slate-50 p-2.5 text-[11px] text-slate-500 text-center border-t border-slate-100">
-          <span className="font-semibold text-brand-900">SRM Easwari Autonomous</span>
-          <p className="text-[10px] text-slate-400">Department of CSE (Cyber Security)</p>
+          <span className="font-semibold text-brand-900">Student Alumni Portal</span>
+          <p className="text-[10px] text-slate-400">Professional Networking Network</p>
         </div>
       </div>
 
       {/* Quick Navigation / Shortcuts */}
       <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-4 space-y-2">
         <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">
-          Campus Fast Tracks
+          Fast Tracks
         </h4>
         <ul className="space-y-1.5 text-xs">
           <li>
@@ -121,7 +115,7 @@ const LeftSidebar = () => {
               className="flex items-center space-x-2 text-slate-700 hover:text-brand-800 hover:bg-slate-50 p-1.5 rounded-lg transition-colors font-medium"
             >
               <Briefcase className="w-4 h-4 text-blue-600" />
-              <span>Campus & Alumni Referrals</span>
+              <span>Job & Internship Board</span>
             </Link>
           </li>
           <li>
@@ -130,7 +124,7 @@ const LeftSidebar = () => {
               className="flex items-center space-x-2 text-slate-700 hover:text-brand-800 hover:bg-slate-50 p-1.5 rounded-lg transition-colors font-medium"
             >
               <Award className="w-4 h-4 text-amber-500" />
-              <span>Placement Webinars</span>
+              <span>Alumni Webinars</span>
             </Link>
           </li>
           <li>
@@ -139,7 +133,7 @@ const LeftSidebar = () => {
               className="flex items-center space-x-2 text-slate-700 hover:text-brand-800 hover:bg-slate-50 p-1.5 rounded-lg transition-colors font-medium"
             >
               <Layers className="w-4 h-4 text-purple-600" />
-              <span>Department Batch Directory</span>
+              <span>Directory</span>
             </Link>
           </li>
         </ul>

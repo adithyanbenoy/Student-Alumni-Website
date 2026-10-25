@@ -77,7 +77,7 @@ const NetworkPage = () => {
           <div>
             <h1 className="text-2xl font-black text-slate-900 tracking-tight flex items-center gap-2">
               <Users className="w-6 h-6 text-brand-800" />
-              SRM Easwari Student & Alumni Network
+              Student & Alumni Directory Network
             </h1>
             <p className="text-xs sm:text-sm text-slate-500 mt-1">
               Connect with fellow classmates, discover seniors in tier-1 organizations, and expand your professional circle.
@@ -205,7 +205,7 @@ const NetworkPage = () => {
                   )}
 
                   <p className="text-xs text-slate-500 mt-2 line-clamp-2 leading-relaxed">
-                    {person.bio || 'Member of the SRM Easwari Engineering College network.'}
+                    {person.bio || 'Member of the Student Alumni network.'}
                   </p>
 
                   {/* Skills */}

@@ -121,7 +121,7 @@ const AdminDashboardPage = () => {
         category: annCategory
       });
       if (res.data.success) {
-        alert('Official announcement broadcasted across SRM Easwari!');
+        alert('Official announcement broadcasted across the platform!');
         setShowAnnModal(false);
         setAnnTitle('');
         setAnnContent('');
@@ -169,7 +169,7 @@ const AdminDashboardPage = () => {
             <span>Institutional Governance Control Room</span>
           </div>
           <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
-            SRM Easwari Admin Dashboard
+            Admin Management Dashboard
           </h1>
           <p className="text-xs sm:text-sm text-slate-300 mt-1 max-w-xl">
             Oversee user registrations, verify alumnus credentials, audit placement opportunities, and broadcast college-wide notices.
@@ -573,7 +573,7 @@ const AdminDashboardPage = () => {
           <div className="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl border border-slate-200">
             <div className="flex items-center justify-between pb-3 border-b border-slate-100">
               <h3 className="font-bold text-slate-900 text-sm">
-                Broadcast Official SRM Easwari Notice
+                Broadcast Official Platform Notice
               </h3>
               <button
                 onClick={() => setShowAnnModal(false)}
@@ -590,7 +590,7 @@ const AdminDashboardPage = () => {
                 </label>
                 <input
                   type="text"
-                  placeholder="e.g. SRM Easwari Placement Drive 2026 - Registration Open"
+                  placeholder="e.g. Annual Placement Drive - Registration Open"
                   value={annTitle}
                   onChange={(e) => setAnnTitle(e.target.value)}
                   className="w-full text-xs p-2 border border-slate-200 rounded-lg"

@@ -179,9 +179,9 @@ const FeedPage = () => {
             <div className="bg-gradient-to-r from-brand-900 to-brand-800 text-white rounded-xl p-4 shadow-sm border border-brand-700">
               <div className="flex items-center space-x-2 mb-2">
                 <span className="bg-accent-gold text-slate-900 text-[10px] font-black px-2 py-0.5 rounded uppercase flex items-center gap-1">
-                  <Megaphone className="w-3 h-3" /> Official Campus Bulletin
+                  <Megaphone className="w-3 h-3" /> Official Bulletin
                 </span>
-                <span className="text-xs text-brand-200">SRM Easwari Engineering College</span>
+                <span className="text-xs text-brand-200">Student Alumni Portal</span>
               </div>
               <h3 className="text-sm font-bold text-white mb-1">
                 {announcements[0].title}
@@ -529,7 +529,7 @@ const FeedPage = () => {
                 />
                 <div>
                   <h3 className="font-bold text-slate-900 text-sm">{user?.name}</h3>
-                  <p className="text-xs text-slate-500 capitalize">{user?.role} • SRM Easwari</p>
+                  <p className="text-xs text-slate-500 capitalize">{user?.role} • Student Alumni Portal</p>
                 </div>
               </div>
               <button
@@ -560,7 +560,7 @@ const FeedPage = () => {
               <div>
                 <textarea
                   rows="4"
-                  placeholder="What would you like to share with SRM Easwari students and alumni?"
+                  placeholder="What would you like to share with students and alumni?"
                   value={newContent}
                   onChange={(e) => setNewContent(e.target.value)}
                   className="w-full text-xs sm:text-sm p-3 border border-slate-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-brand-700"

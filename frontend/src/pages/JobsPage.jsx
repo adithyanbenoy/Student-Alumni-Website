@@ -118,7 +118,7 @@ const JobsPage = () => {
         resumeUrl
       });
       if (res.data.success) {
-        alert('Application submitted successfully to the Easwari Alumni Recruiter!');
+        alert('Application submitted successfully to the Alumni Recruiter!');
         setSelectedJobToApply(null);
         setCoverNote('');
         fetchJobs();
@@ -151,7 +151,7 @@ const JobsPage = () => {
       });
 
       if (res.data.success) {
-        alert('Job opportunity published successfully to the SRM Easwari portal!');
+        alert('Job opportunity published successfully to the portal!');
         setShowPostJobModal(false);
         setNewTitle('');
         setNewDescription('');
@@ -208,7 +208,7 @@ const JobsPage = () => {
             <span>Campus & Alumni Referral Hub</span>
           </div>
           <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
-            Exclusive Jobs & Internships for SRM Easwari
+            Curated Jobs & Internships
           </h1>
           <p className="text-xs sm:text-sm text-brand-100 mt-1 max-w-xl">
             Direct job openings and internship referrals posted by our alumni network and placement cell.
@@ -740,7 +740,7 @@ const JobsPage = () => {
           <div className="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl border border-slate-200 max-h-[90vh] overflow-y-auto">
             <div className="flex items-center justify-between pb-3 border-b border-slate-100">
               <h3 className="font-bold text-slate-900 text-sm">
-                Post an Opportunity for SRM Easwari Students
+                Post an Opportunity for Students & Graduates
               </h3>
               <button
                 onClick={() => setShowPostJobModal(false)}

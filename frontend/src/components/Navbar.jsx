@@ -9,124 +9,32 @@ import {
   Calendar,
   MessageSquare,
   ShieldCheck,
-  Bell,
-  Search,
   LogOut,
   User as UserIcon,
   ChevronDown,
-  Sparkles,
   CheckCircle2,
   Building2
 } from 'lucide-react';
 
 const Navbar = () => {
-  const { user, logout, quickLoginAs } = useAuth();
+  const { user, logout } = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
   const [showUserMenu, setShowUserMenu] = useState(false);
-  const [showSwitchMenu, setShowSwitchMenu] = useState(false);
 
   const isActive = (path) => location.pathname === path;
 
-  const handleRoleSwitch = async (email) => {
-    setShowSwitchMenu(false);
-    setShowUserMenu(false);
-    await quickLoginAs(email);
-    navigate('/feed');
-  };
-
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-slate-200 shadow-sm">
-      {/* Top institution banner */}
-      <div className="bg-brand-800 text-white text-xs px-4 py-1 flex items-center justify-between">
+      {/* Top organization bar */}
+      <div className="bg-slate-900 text-slate-300 text-xs px-4 py-1.5 flex items-center justify-between">
         <div className="flex items-center space-x-2">
-          <span className="font-bold tracking-wider">SRM EASWARI ENGINEERING COLLEGE</span>
-          <span className="hidden sm:inline text-brand-200">|</span>
-          <span className="hidden sm:inline text-brand-100 font-medium">AUTONOMOUS INSTITUTION</span>
-          <span className="hidden md:inline bg-accent-gold text-slate-900 text-[10px] font-black px-1.5 py-0.5 rounded">
-            EDUCATE & EXCEL
-          </span>
+          <span className="font-bold tracking-wider text-white">STUDENT ALUMNI PORTAL</span>
+          <span className="text-slate-600">|</span>
+          <span className="text-slate-400 font-medium">Centralized Career & Mentorship Network</span>
         </div>
-        <div className="flex items-center space-x-3 text-[11px]">
-          <span className="text-brand-200 hidden md:inline">CSE (Cyber Security) FSD Project</span>
-          <div className="relative">
-            <button
-              onClick={() => setShowSwitchMenu(!showSwitchMenu)}
-              className="bg-brand-700 hover:bg-brand-600 text-brand-100 px-2 py-0.5 rounded font-medium flex items-center space-x-1 border border-brand-500/40"
-              title="Quick Persona Switcher for Presentation & Testing"
-            >
-              <Sparkles className="w-3 h-3 text-accent-gold" />
-              <span>Demo Switcher</span>
-              <ChevronDown className="w-3 h-3" />
-            </button>
-
-            {/* Quick Demo Switcher Dropdown */}
-            {showSwitchMenu && (
-              <div className="absolute right-0 mt-1 w-72 bg-white text-slate-800 rounded-lg shadow-xl border border-slate-200 py-2 z-50">
-                <div className="px-3 py-1.5 border-b border-slate-100">
-                  <p className="text-xs font-bold text-slate-900">Switch Persona for Evaluation</p>
-                  <p className="text-[10px] text-slate-500">Test different roles with 1 click</p>
-                </div>
-                <div className="py-1 text-xs">
-                  <button
-                    onClick={() => handleRoleSwitch('adithyan.benoy@student.srmrmp.edu.in')}
-                    className="w-full text-left px-3 py-2 hover:bg-slate-50 flex items-start space-x-2"
-                  >
-                    <span className="text-base">🎓</span>
-                    <div>
-                      <div className="font-semibold text-slate-900 flex items-center gap-1">
-                        Adithyan Benoy
-                        <span className="bg-blue-100 text-blue-700 text-[9px] px-1 py-0.2 rounded font-bold">Presenter (Student)</span>
-                      </div>
-                      <p className="text-[10px] text-slate-500">CSE (Cyber Security) | Reg: 310624149003</p>
-                    </div>
-                  </button>
-
-                  <button
-                    onClick={() => handleRoleSwitch('kavitha.s@paloaltonetworks.com')}
-                    className="w-full text-left px-3 py-2 hover:bg-slate-50 flex items-start space-x-2"
-                  >
-                    <span className="text-base">🛡️</span>
-                    <div>
-                      <div className="font-semibold text-slate-900 flex items-center gap-1">
-                        Kavitha Sridhar
-                        <span className="bg-emerald-100 text-emerald-700 text-[9px] px-1 py-0.2 rounded font-bold">Verified Alumni Mentor</span>
-                      </div>
-                      <p className="text-[10px] text-slate-500">Sr. Cloud Security Architect @ Palo Alto</p>
-                    </div>
-                  </button>
-
-                  <button
-                    onClick={() => handleRoleSwitch('divyanjali@easwari.srmrmp.edu.in')}
-                    className="w-full text-left px-3 py-2 hover:bg-slate-50 flex items-start space-x-2"
-                  >
-                    <span className="text-base">👩‍🏫</span>
-                    <div>
-                      <div className="font-semibold text-slate-900 flex items-center gap-1">
-                        Ms. Divyanjali
-                        <span className="bg-purple-100 text-purple-700 text-[9px] px-1 py-0.2 rounded font-bold">Faculty Guide</span>
-                      </div>
-                      <p className="text-[10px] text-slate-500">Technical Trainer, CSE (Cyber Security)</p>
-                    </div>
-                  </button>
-
-                  <button
-                    onClick={() => handleRoleSwitch('admin@easwari.srmrmp.edu.in')}
-                    className="w-full text-left px-3 py-2 hover:bg-slate-50 flex items-start space-x-2"
-                  >
-                    <span className="text-base">🏛️</span>
-                    <div>
-                      <div className="font-semibold text-slate-900 flex items-center gap-1">
-                        Admin Office
-                        <span className="bg-amber-100 text-amber-800 text-[9px] px-1 py-0.2 rounded font-bold">Administrator</span>
-                      </div>
-                      <p className="text-[10px] text-slate-500">SRM Easwari Placement & Alumni Cell</p>
-                    </div>
-                  </button>
-                </div>
-              </div>
-            )}
-          </div>
+        <div className="text-[11px] text-slate-400 hidden sm:block">
+          Connecting Students, Industry Alumni & Recruiters
         </div>
       </div>
 
@@ -136,18 +44,18 @@ const Navbar = () => {
           {/* Logo & Brand */}
           <div className="flex items-center space-x-3">
             <Link to="/feed" className="flex items-center space-x-2.5 group">
-              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-brand-800 to-brand-900 flex items-center justify-center text-accent-gold font-black text-xl shadow-md border border-brand-700 group-hover:scale-105 transition-transform">
-                E
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-800 to-slate-900 flex items-center justify-center text-accent-gold font-black text-xl shadow-md border border-brand-700 group-hover:scale-105 transition-transform">
+                A
               </div>
               <div className="leading-tight">
                 <span className="font-black text-slate-900 text-base tracking-tight flex items-center gap-1.5">
-                  Easwari <span className="text-brand-800 font-extrabold">AlmaLink</span>
+                  Alumni<span className="text-brand-800 font-extrabold">Hub</span>
                   <span className="bg-emerald-100 text-emerald-800 text-[10px] font-bold px-1.5 py-0.5 rounded border border-emerald-300">
-                    MERN
+                    Portal
                   </span>
                 </span>
                 <p className="text-[11px] text-slate-500 font-medium hidden sm:block">
-                  Integrated Mentorship & Job Portal
+                  Student & Alumni Professional Network
                 </p>
               </div>
             </Link>
@@ -243,7 +151,7 @@ const Navbar = () => {
             )}
           </nav>
 
-          {/* Profile & User Status */}
+          {/* Profile & User Dropdown */}
           <div className="flex items-center space-x-2 border-l border-slate-200 pl-3">
             {user ? (
               <div className="relative">
@@ -280,9 +188,6 @@ const Navbar = () => {
                         <span className="bg-brand-50 text-brand-800 font-bold px-1.5 py-0.5 rounded uppercase">
                           {user.role}
                         </span>
-                        {user.registerNumber && (
-                          <span className="text-slate-500 font-mono">Reg: {user.registerNumber}</span>
-                        )}
                         {user.company && (
                           <span className="text-slate-600 truncate">@{user.company}</span>
                         )}
@@ -338,7 +243,7 @@ const Navbar = () => {
                   to="/register"
                   className="text-xs font-semibold bg-brand-800 text-white hover:bg-brand-900 px-3 py-2 rounded-lg shadow-sm"
                 >
-                  Join AlmaLink
+                  Join Portal
                 </Link>
               </div>
             )}

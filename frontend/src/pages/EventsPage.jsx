@@ -113,7 +113,7 @@ const EventsPage = () => {
             <span>Campus Placement & Alumni Webinars</span>
           </div>
           <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
-            SRM Easwari Conclaves & Tech Talks
+            Alumni Conclaves & Tech Talks
           </h1>
           <p className="text-xs sm:text-sm text-brand-100 mt-1 max-w-xl">
             Live technical sessions, placement interview series, and alumni keynotes designed to prepare students for top tier industry careers.
@@ -258,7 +258,7 @@ const EventsPage = () => {
           <div className="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl border border-slate-200 max-h-[90vh] overflow-y-auto">
             <div className="flex items-center justify-between pb-3 border-b border-slate-100">
               <h3 className="font-bold text-slate-900 text-sm">
-                Schedule an SRM Easwari Alumni Session
+                Schedule an Alumni Webinar Session
               </h3>
               <button
                 onClick={() => setShowModal(false)}

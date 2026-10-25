@@ -7,19 +7,17 @@ import {
   Lock,
   Mail,
   User,
-  CheckCircle2,
-  Sparkles
+  ArrowRight
 } from 'lucide-react';
 
 const DEPARTMENTS = [
-  'CSE (Cyber Security)',
-  'CSE',
-  'CSE (AI & ML)',
+  'Computer Science & Engineering',
+  'Cyber Security',
+  'Artificial Intelligence & Data Science',
   'Information Technology',
-  'ECE',
-  'EEE',
-  'Mechanical Engineering',
-  'Civil Engineering'
+  'Electrical & Computer Engineering',
+  'Electronics & Communication',
+  'Mechanical Engineering'
 ];
 
 const RegisterPage = () => {
@@ -30,7 +28,7 @@ const RegisterPage = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [department, setDepartment] = useState('CSE (Cyber Security)');
+  const [department, setDepartment] = useState('Computer Science & Engineering');
   const [batchYear, setBatchYear] = useState('2026');
   const [registerNumber, setRegisterNumber] = useState('');
 
@@ -39,7 +37,7 @@ const RegisterPage = () => {
   const [designation, setDesignation] = useState('');
   const [experienceYears, setExperienceYears] = useState('2');
   const [isMentorAvailable, setIsMentorAvailable] = useState(true);
-  const [mentorTopics, setMentorTopics] = useState('Cyber Security, Placement Preparation, Mock Interviews');
+  const [mentorTopics, setMentorTopics] = useState('Career Guidance, System Design, Placement Prep');
 
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
@@ -79,14 +77,14 @@ const RegisterPage = () => {
       <div className="max-w-xl w-full space-y-6">
         {/* Branding */}
         <div className="text-center">
-          <div className="w-14 h-14 mx-auto rounded-2xl bg-gradient-to-br from-brand-800 to-brand-900 flex items-center justify-center text-accent-gold font-black text-2xl shadow-lg border border-brand-700 mb-3">
-            E
+          <div className="w-14 h-14 mx-auto rounded-2xl bg-gradient-to-br from-brand-800 to-slate-900 flex items-center justify-center text-accent-gold font-black text-2xl shadow-lg border border-brand-700 mb-3">
+            A
           </div>
-          <h2 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">
-            Join the SRM Easwari Community
+          <h2 className="text-2xl font-black text-slate-900 tracking-tight">
+            Create an Account
           </h2>
           <p className="text-xs font-bold text-brand-800 uppercase tracking-widest mt-0.5">
-            Integrated Alumni-Student Mentorship & Job Portal
+            Student Alumni Portal
           </p>
         </div>
 
@@ -132,7 +130,7 @@ const RegisterPage = () => {
               <label className="block text-xs font-bold text-slate-700 mb-1">Full Name</label>
               <input
                 type="text"
-                placeholder="e.g. Adithyan Benoy"
+                placeholder="e.g. Alex Morgan"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm focus:ring-1 focus:ring-brand-700"
@@ -142,13 +140,13 @@ const RegisterPage = () => {
 
             <div>
               <label className="block text-xs font-bold text-slate-700 mb-1">
-                {role === 'student' ? 'College Email Address' : 'Corporate / Personal Email'}
+                {role === 'student' ? 'Student Email Address' : 'Corporate / Personal Email'}
               </label>
               <input
                 type="email"
                 placeholder={
                   role === 'student'
-                    ? 'studentname@student.srmrmp.edu.in'
+                    ? 'studentname@student.alumniportal.edu'
                     : 'alumni@company.com'
                 }
                 value={email}
@@ -188,7 +186,7 @@ const RegisterPage = () => {
 
               <div>
                 <label className="block text-xs font-bold text-slate-700 mb-1">
-                  {role === 'student' ? 'Graduation Batch' : 'Passout Year'}
+                  {role === 'student' ? 'Graduation Batch' : 'Graduation Year'}
                 </label>
                 <input
                   type="number"
@@ -203,11 +201,11 @@ const RegisterPage = () => {
             {role === 'student' && (
               <div>
                 <label className="block text-xs font-bold text-slate-700 mb-1">
-                  SRM Easwari Register Number
+                  Student ID Number
                 </label>
                 <input
                   type="text"
-                  placeholder="e.g. 310624149003"
+                  placeholder="e.g. STU-2026-9012"
                   value={registerNumber}
                   onChange={(e) => setRegisterNumber(e.target.value)}
                   className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs font-mono"
@@ -220,10 +218,10 @@ const RegisterPage = () => {
               <>
                 <div className="grid grid-cols-2 gap-3">
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-1">Company</label>
+                    <label className="block text-xs font-bold text-slate-700 mb-1">Current Company</label>
                     <input
                       type="text"
-                      placeholder="e.g. Palo Alto Networks, Google, Zoho"
+                      placeholder="e.g. Palo Alto Networks, Google, Amazon"
                       value={company}
                       onChange={(e) => setCompany(e.target.value)}
                       className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs"
@@ -234,7 +232,7 @@ const RegisterPage = () => {
                     <label className="block text-xs font-bold text-slate-700 mb-1">Designation</label>
                     <input
                       type="text"
-                      placeholder="e.g. Cloud Security Architect"
+                      placeholder="e.g. Senior Security Architect"
                       value={designation}
                       onChange={(e) => setDesignation(e.target.value)}
                       className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs"
@@ -253,7 +251,7 @@ const RegisterPage = () => {
                       className="w-4 h-4 text-brand-800 rounded"
                     />
                     <label htmlFor="mentorToggle" className="text-xs font-bold text-brand-900">
-                      Enable Mentorship Offerings for Students
+                      Enable Mentorship Availability for Students
                     </label>
                   </div>
                   <div>
@@ -276,7 +274,7 @@ const RegisterPage = () => {
               disabled={loading}
               className="w-full bg-brand-800 hover:bg-brand-900 text-white font-bold text-xs sm:text-sm py-2.5 rounded-xl shadow-sm transition-colors mt-2"
             >
-              {loading ? 'Registering Account...' : 'Join SRM Easwari Network'}
+              {loading ? 'Creating Account...' : 'Complete Registration'}
             </button>
           </form>
 

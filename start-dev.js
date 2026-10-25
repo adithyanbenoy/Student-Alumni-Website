@@ -6,7 +6,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 console.log('========================================================');
-console.log(' Starting SRM Easwari Engineering College Portal (MERN) ');
+console.log(' Starting Student Alumni Portal (MERN Stack)            ');
 console.log('========================================================\n');
 
 // Start backend

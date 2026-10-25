@@ -76,7 +76,7 @@ app.set('socketio', io);
 app.get('/api/health', (req, res) => {
   res.json({
     status: 'online',
-    portal: 'SRM Easwari Engineering College Integrated Alumni-Student Mentorship & Job Portal',
+    portal: 'Student Alumni Portal - Centralized Mentorship & Job Network',
     timestamp: new Date().toISOString()
   });
 });
@@ -114,7 +114,7 @@ const PORT = process.env.PORT || 5000;
 
 server.listen(PORT, () => {
   console.log(`================================================================`);
-  console.log(` SRM Easwari Engineering College Alumni-Student Portal Backend `);
+  console.log(` Student Alumni Portal Backend (MERN Stack)                     `);
   console.log(` Server running in ${process.env.NODE_ENV || 'development'} on port ${PORT} `);
   console.log(` API Health: http://localhost:${PORT}/api/health               `);
   console.log(`================================================================`);

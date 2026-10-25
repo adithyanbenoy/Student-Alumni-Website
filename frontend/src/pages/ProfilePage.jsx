@@ -76,7 +76,7 @@ const ProfilePage = () => {
         {/* Banner with SRM Easwari Gradient */}
         <div className="h-36 bg-gradient-to-r from-brand-900 via-brand-800 to-emerald-700 relative">
           <div className="absolute top-4 right-4 bg-white/20 backdrop-blur-md text-white text-xs font-bold px-3 py-1 rounded-full uppercase">
-            {user.role} • SRM Easwari
+            {user.role} • Student Alumni Portal
           </div>
         </div>
 
@@ -237,7 +237,7 @@ const ProfilePage = () => {
                       className="w-4 h-4 text-brand-800 rounded focus:ring-brand-700"
                     />
                     <label htmlFor="mentorAvailable" className="text-xs font-bold text-emerald-900">
-                      I am open to mentoring SRM Easwari students 1-on-1
+                      I am open to mentoring students 1-on-1
                     </label>
                   </div>
 
